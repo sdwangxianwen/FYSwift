@@ -69,7 +69,7 @@ let spinerPlugin = NetworkActivityPlugin { (state,target) in
         //        MBProgressHUD.showAdded(to: UIApplication.shared.keyWindow!, animated: true)
     } else {
         print("我结束请求")
-//        IDLoading.id_dismiss()
+        IDLoading.id_dismiss()
         //        MBProgressHUD.hide(for: UIApplication.shared.keyWindow!, animated: true)
     }
 }
@@ -81,7 +81,7 @@ let requestClosure = {(endpoint: Endpoint, done: @escaping MoyaProvider<FYAPI>.R
         done(.success(request))
     } catch  {
         print("错误了 \(error)")
-//        IDLoading.id_dismiss()
+        IDLoading.id_dismiss()
     }
 }
 
@@ -154,6 +154,7 @@ class FYNetApi: NSObject {
                 }
                 
             case .failure(_):
+                 IDToast.id_show(msg: "网络连接超时", onView: getCurrentController().view, success: nil, duration: 2, position: .middle)
                 break
             }
         }
