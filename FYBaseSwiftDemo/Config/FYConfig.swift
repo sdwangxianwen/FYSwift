@@ -29,11 +29,11 @@ var kScreenWidth = UIScreen.main.bounds.size.width
 /// 屏幕高度
 var kScreenHeight = UIScreen.main.bounds.size.height
 /// tabBar高度
-let TabBarHeight:CGFloat = isPhoneX() ? 83 : 49
+let kTabBarHeight:CGFloat = isPhoneX() ? 83 : 49
 /// nav高度
-let NavBarHeight:CGFloat = isPhoneX() ? 88 : 64
+let kNavBarHeight:CGFloat = isPhoneX() ? 88 : 64
 /// 底部手势框的高度
-let BottomLineHeight : CGFloat = isPhoneX() ? 34 : 0
+let kBottomLineHeight : CGFloat = isPhoneX() ? 34 : 0
 /// 设置随机颜色
 func UIColorRandom() -> UIColor {
     let color: UIColor = UIColor.init(red: (((CGFloat)((arc4random() % 256)) / 255.0)), green: (((CGFloat)((arc4random() % 256)) / 255.0)), blue: (((CGFloat)((arc4random() % 256)) / 255.0)), alpha: 1.0);

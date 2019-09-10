@@ -127,10 +127,11 @@ func setParm(parm : NSMutableDictionary) -> NSMutableDictionary {
 
 let provider = MoyaProvider<FYAPI>(endpointClosure: endpointClosure, requestClosure : requestClosure,plugins:[spinerPlugin])
 
-//成功的闭包
-typealias SuccessJSONClosure = (_ result:Response) -> Void
+
 
 class FYNetApi: NSObject {
+    //成功的闭包
+    typealias SuccessJSONClosure = (_ result:Response) -> Void
     static let shared = FYNetApi()
     func post(target:FYAPI, successClosure: @escaping SuccessJSONClosure)  {
         provider.request(target) { (result) in
