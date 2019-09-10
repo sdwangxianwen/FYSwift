@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class FYHomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,8 +17,9 @@ class ViewController: UIViewController {
         } else {
             view.backgroundColor = UIColor.white
         }
-        
-       
+        FYNetApi.shared.post(target: .homeURL) { (response) in
+            
+        }
     }
 
 

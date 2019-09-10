@@ -17,11 +17,11 @@ class FYTabBarController: UITabBarController {
     }
     
     func setupChild() {
-//        let homeVC = FYHomeViewController.init()
+        let homeVC = FYHomeViewController.init()
 //        let meVC = FYMeViewController.init()
 //        let customVC = FYCustomViewController.init()
 //        
-//        addChild(homeVC, title: "首页", imageName: "", imageSelectName: "")
+        addChild(homeVC, title: "首页", imageName: "", imageSelectName: "")
 //        addChild(customVC, title: "自定义", imageName: "", imageSelectName: "")
 //        addChild(meVC, title: "我的", imageName: "", imageSelectName: "")
         

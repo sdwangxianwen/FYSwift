@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		0D74FC82F1585EDED6859C18 /* Pods_FYBaseSwiftDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C299AF445FA02642F6A59A6A /* Pods_FYBaseSwiftDemo.framework */; };
 		2174C3AB2327742A00F90A5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2174C3AA2327742A00F90A5D /* AppDelegate.swift */; };
-		2174C3AD2327742A00F90A5D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2174C3AC2327742A00F90A5D /* ViewController.swift */; };
+		2174C3AD2327742A00F90A5D /* FYHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2174C3AC2327742A00F90A5D /* FYHomeViewController.swift */; };
 		2174C3B02327742A00F90A5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2174C3AE2327742A00F90A5D /* Main.storyboard */; };
 		2174C3B22327742D00F90A5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2174C3B12327742D00F90A5D /* Assets.xcassets */; };
 		2174C3B52327742D00F90A5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2174C3B32327742D00F90A5D /* LaunchScreen.storyboard */; };
@@ -75,7 +75,7 @@
 		1A8AF041254B790AC4BC51A7 /* Pods-FYBaseSwiftDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FYBaseSwiftDemoTests.release.xcconfig"; path = "Target Support Files/Pods-FYBaseSwiftDemoTests/Pods-FYBaseSwiftDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		2174C3A72327742A00F90A5D /* FYBaseSwiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FYBaseSwiftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2174C3AA2327742A00F90A5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2174C3AC2327742A00F90A5D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2174C3AC2327742A00F90A5D /* FYHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FYHomeViewController.swift; sourceTree = "<group>"; };
 		2174C3AF2327742A00F90A5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2174C3B12327742D00F90A5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2174C3B42327742D00F90A5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -197,7 +197,7 @@
 				2174C3D9232775E100F90A5D /* Config */,
 				2174C3D8232775BA00F90A5D /* Base */,
 				2174C3AA2327742A00F90A5D /* AppDelegate.swift */,
-				2174C3AC2327742A00F90A5D /* ViewController.swift */,
+				2174C3AC2327742A00F90A5D /* FYHomeViewController.swift */,
 				2174C3AE2327742A00F90A5D /* Main.storyboard */,
 				2174C3B12327742D00F90A5D /* Assets.xcassets */,
 				2174C3B32327742D00F90A5D /* LaunchScreen.storyboard */,
@@ -580,7 +580,7 @@
 				2174C3F82327813100F90A5D /* IDToast.swift in Sources */,
 				2174C424232782FA00F90A5D /* Config.swift in Sources */,
 				2174C3EB2327786600F90A5D /* FYTabBarController.swift in Sources */,
-				2174C3AD2327742A00F90A5D /* ViewController.swift in Sources */,
+				2174C3AD2327742A00F90A5D /* FYHomeViewController.swift in Sources */,
 				2174C3EC2327786600F90A5D /* FYCustomNavigationBar.swift in Sources */,
 				2174C3E22327780200F90A5D /* FYBaseModel.swift in Sources */,
 				2174C3F92327813100F90A5D /* IDImageToast.swift in Sources */,
