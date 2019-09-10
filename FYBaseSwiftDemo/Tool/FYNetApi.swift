@@ -61,16 +61,10 @@ extension FYAPI :TargetType {
 let spinerPlugin = NetworkActivityPlugin { (state,target) in
     if state == .began {
         print("我开始请求")
-//        guard let VC = getCurrentController() else {
-//            IDLoading.id_show()
-//            return
-//        }
         IDLoading.id_show(onView: getCurrentController().view)
-        //        MBProgressHUD.showAdded(to: UIApplication.shared.keyWindow!, animated: true)
     } else {
         print("我结束请求")
         IDLoading.id_dismiss()
-        //        MBProgressHUD.hide(for: UIApplication.shared.keyWindow!, animated: true)
     }
 }
 // MARK: - 设置请求超时时间
@@ -144,14 +138,19 @@ class FYNetApi: NSObject {
         provider.request(target) { (result) in
             switch result {
             case let .success(response):
-                let dataModel : FYBaseModel = try! response.map(FYBaseModel.self)
-                print(try! response.mapString())
-                if dataModel.rsp_code == "0000" {
-                    successClosure(response)
-                } else {
-                    print(dataModel.rsp_msg)
-                    IDToast.id_show(msg: dataModel.rsp_msg, onView: getCurrentController().view, success: nil, duration: 2, position: .middle)
+                do {
+                    let dataModel : FYBaseModel = try response.map(FYBaseModel.self)
+                    print(try response.mapString())
+                    if dataModel.rsp_code == "0000" {
+                        successClosure(response)
+                    } else {
+                        print(dataModel.rsp_msg)
+                        IDToast.id_show(msg: dataModel.rsp_msg, onView: getCurrentController().view, success: nil, duration: 2, position: .middle)
+                    }
+                } catch {
+                    IDToast.id_show(msg: "网络请求失败", onView: getCurrentController().view, success: nil, duration: 2, position: .middle)
                 }
+               
                 
             case .failure(_):
                  IDToast.id_show(msg: "网络连接超时", onView: getCurrentController().view, success: nil, duration: 2, position: .middle)
