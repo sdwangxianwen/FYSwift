@@ -40,6 +40,10 @@ func UIColorRandom() -> UIColor {
     return color;
 }
 
+var RGBAColor: (CGFloat, CGFloat, CGFloat, CGFloat) -> UIColor = {red, green, blue, alpha in
+    return UIColor(red: red / 255, green: green / 255, blue: blue / 255, alpha: alpha);
+}
+
 // MARK: - 颜色的设置
 extension UIColor {
     
@@ -79,33 +83,47 @@ extension UIColor {
         self.init(red: CGFloat(redValue) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: alpha)
     }
     
+    func convertRGB() -> [Int]? {
+        var fRed : CGFloat = 0
+        var fGreen : CGFloat = 0
+        var fBlue : CGFloat = 0
+        var fAlpha: CGFloat = 0
+        if self.getRed(&fRed, green: &fGreen, blue: &fBlue, alpha: &fAlpha) {
+            let iRed = Int(fRed * 255.0)
+            let iGreen = Int(fGreen * 255.0)
+            let iBlue = Int(fBlue * 255.0)
+            //            let iAlpha = Int(fAlpha * 255.0)
+            return [iRed, iGreen, iBlue]
+        } else {
+            // Could not extract RGBA components:
+            return [13, 122, 255]
+        }
+    }
     //let color = UIColor(hex: "ff0000")
     
 }
 
 let mainColor = UIColor.init(hexString: "#24B5A1")
 
-extension NSObject {
-    func getCurrentController() -> UIViewController {
-        let keywindow = (UIApplication.shared.delegate as! AppDelegate).window//UIApplication.shared.keyWindow使用此有时会崩溃
-        let firstView: UIView = (keywindow?.subviews.first)!
-        let secondView: UIView = firstView.subviews.first!
-        var vc = viewForController(view: secondView)!
-        vc = ((vc as! UITabBarController).selectedViewController! as! UINavigationController).visibleViewController!
-        
-        return vc
-    }
+func getCurrentController() -> UIViewController {
+    let keywindow = (UIApplication.shared.delegate as! AppDelegate).window//UIApplication.shared.keyWindow使用此有时会崩溃
+    let firstView: UIView = (keywindow?.subviews.first)!
+    let secondView: UIView = firstView.subviews.first!
+    var vc = viewForController(view: secondView)!
+    vc = ((vc as! UITabBarController).selectedViewController! as! UINavigationController).visibleViewController!
     
-    private func viewForController(view:UIView)->UIViewController?{
-        var next:UIView? = view
-        repeat{
-            if let nextResponder = next?.next, nextResponder is UIViewController {
-                return (nextResponder as! UIViewController)
-            }
-            next = next?.superview
-        }while next != nil
-        return nil
-    }
+    return vc
+}
+
+private func viewForController(view:UIView)->UIViewController?{
+    var next:UIView? = view
+    repeat{
+        if let nextResponder = next?.next, nextResponder is UIViewController {
+            return (nextResponder as! UIViewController)
+        }
+        next = next?.superview
+    }while next != nil
+    return nil
 }
 
 extension String {

@@ -61,9 +61,12 @@ extension FYAPI :TargetType {
 let spinerPlugin = NetworkActivityPlugin { (state,target) in
     if state == .began {
         print("我开始请求")
+        
+        IDLoading.id_show(onView: getCurrentController().view)
         //        MBProgressHUD.showAdded(to: UIApplication.shared.keyWindow!, animated: true)
     } else {
         print("我结束请求")
+        IDLoading.id_dismiss()
         //        MBProgressHUD.hide(for: UIApplication.shared.keyWindow!, animated: true)
     }
 }
@@ -75,6 +78,7 @@ let requestClosure = {(endpoint: Endpoint, done: @escaping MoyaProvider<FYAPI>.R
         done(.success(request))
     } catch  {
         print("错误了 \(error)")
+        IDLoading.id_dismiss()
     }
 }
 
@@ -143,7 +147,7 @@ class FYNetApi: NSObject {
                     successClosure(response)
                 } else {
                     print(dataModel.rsp_msg)
-//                    IDToast.id_show(msg: dataModel.rsp_msg, onView: self.getCurrentController().view, success: nil, duration: 2, position: .middle)
+                    IDToast.id_show(msg: dataModel.rsp_msg, onView: getCurrentController().view, success: nil, duration: 2, position: .middle)
                 }
                 
             case .failure(_):
