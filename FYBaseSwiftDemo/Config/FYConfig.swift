@@ -373,6 +373,43 @@ extension UIImage {
     }
 }
 
+extension String {
+    /// 计算字符串高度,已知宽度
+    ///
+    /// - Parameters:
+    ///   - font: 字符号
+    ///   - width: 宽度
+    /// - Returns: 高度
+    func calculateHeight(_ font: UIFont, width: CGFloat) -> CGFloat {
+        let constraintRect = CGSize(width: width, height: 99999)
+        let boundingBox = self.boundingRect(with: constraintRect, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
+        return ceil(boundingBox.height)
+    }
+    
+    /// 计算字符串宽度,已知高度
+    ///
+    /// - Parameters:
+    ///   - font: 字号
+    ///   - height: 高度
+    /// - Returns: 宽度
+    func calculateWidth(_ font: UIFont, height: CGFloat) -> CGFloat {
+        let constraintRect = CGSize(width: 99999, height: height)
+        let boundingBox = self.boundingRect(with: constraintRect, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
+        return ceil(boundingBox.width)
+    }
+    
+    /// string转cgfloat
+    ///
+    /// - Returns: 转成功的float类型
+    func toCGFloat() -> CGFloat {
+        var cgFloat : CGFloat = 0
+        if let doubleValue = Double(self) {
+            cgFloat = CGFloat(doubleValue)
+        }
+        return cgFloat
+    }
+}
+
 
 
 class FYConfig: NSObject {
